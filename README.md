@@ -23,6 +23,8 @@ will print in Amountschange.txt as..
         [0, 0, 1]
         3
 
+Amountschange.txt will be created in the same directory as program compilation. 
+
     
 
 
