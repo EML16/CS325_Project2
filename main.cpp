@@ -43,18 +43,22 @@ int main(int argc, char* argv[]) {
     }
     outputFile<<"Algorithm changedp:\n";
     for(auto it = inputs.begin(); it != inputs.end(); ++it){
-        vector<int> optSolution;        //The optimal solution for the current amount and coins
-        int optValue;
-        changedp(it->first, it->second, optSolution);
+        auto A = it->first;
+        auto coins = it->second;
 
-        optValue = getOptValue(optSolution);
+        Result result;
+
+        result = changedp(A, coins);
 
         //Write output to a file
         outputFile<<"\t[";
-        copy(optSolution.begin(), optSolution.end(), ostream_iterator<int>(outputFile, ","));
-		outputFile.seekp(-1, ios::cur);	//Overwrite the trail comma
+        
+        copy(result.second.begin(), result.second.end(), ostream_iterator<int>(outputFile, ","));
+		
+        outputFile.seekp(-1, ios::cur);	//Overwrite the trail comma
+        
         outputFile<<"]\n";
-        outputFile<<"\t"<<optValue<<endl;   
+        outputFile<<"\t"<<result.first<<endl;   
     }
 
 	return 0;
