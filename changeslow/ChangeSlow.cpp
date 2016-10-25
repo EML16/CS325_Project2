@@ -10,31 +10,6 @@
 
 #include "ChangeSlow.hpp"
 
-/****************************************************************************************
- ** Description: Helper function that calls the changeslowDC() with passed in values. It
- **              converts the vector returned by changeslowDC() into an array with counts 
- **              of each coin used
- ** Parameters:  int coins[], int coinsSize, int changeRequested, int &minCoins
- ** Pre-Conditions: coins[] must contain coin values with at least a "1" coin. minCoins
- **                 must be passed in by reference
- ** Post-Conditions: Returns an array containing count of each coin used. minCoins contains
- **                  minimum number fo coins used
- ****************************************************************************************/
-int* changeslow(int coins[], int coinsSize, int changeRequested, int &minCoins)
-{
-    int* result = new int[coinsSize];
-    vector<int> res = changeslowDC(coins, changeRequested, coinsSize);
-    minCoins = 0;
-    
-    //Place each value from vector into result array
-    for(int i = 0; i < coinsSize; i++)
-    {
-        result[i] = res[i];
-        minCoins += res[i]; //Sum of coins used
-    }
-    
-    return result;
-}
 
 /****************************************************************************************
  ** Description: Calculates the minimum number of coins used for a given change value
@@ -59,7 +34,7 @@ vector<int> changeslowDC(int coins [], int changeRequested, int coinsSize) {
             return coinCount;
         }
     }
-    
+   
     int min = INT_MAX;
     
     //Loop through each coin

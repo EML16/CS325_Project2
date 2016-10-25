@@ -16,7 +16,6 @@
 
 using std::vector;
 
-int* changeslow(int coins[], int coinsSize, int changeRequested, int &minCoins);
 vector<int> changeslowDC(int coins [], int changeRequested, int coinsSize);
 int elementSum(vector<int> vect1, vector<int> vect2);
 
